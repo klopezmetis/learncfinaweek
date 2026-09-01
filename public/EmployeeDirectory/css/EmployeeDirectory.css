@@ -24,12 +24,8 @@ table {
     width: 100%;
     border-collapse: collapse;
 }
-.no-print {
-    display: block;
-}
 
 @media print {
-    .no-print,
     .btn,
     .modal,
     .alert,
