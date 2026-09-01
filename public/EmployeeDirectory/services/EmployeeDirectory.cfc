@@ -1,5 +1,5 @@
 <cfcomponent>
-	
+	<!---Create function getEmployees(), returns a query of all employees in the Employees table--->
 	<cffunction name="getEmployees" output="false" returntype="Query" access="public" hint="Returns the List of Employees">
 		
 		<cfquery name="employees">
