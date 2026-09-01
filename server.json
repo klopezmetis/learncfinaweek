@@ -1,0 +1,8 @@
+{
+    "adminPassword":"access2026",
+    "app":{
+        "cfengine":"lucee"
+    },
+    "jreVersion":"8",
+    "save":true
+}

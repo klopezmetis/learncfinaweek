@@ -1,0 +1,26 @@
+/* Add padding to table cells */
+table td, table th {
+    padding: 12px 8px !important;
+}
+
+/* Add spacing between buttons */
+td button {
+    margin-right: 5px;
+}
+
+/* Add word wrapping for long addresses/emails */
+table td {
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+/* Modal form spacing */
+.modal-body .form-group {
+    margin-bottom: 15px;
+}
+
+/* Make table responsive */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
