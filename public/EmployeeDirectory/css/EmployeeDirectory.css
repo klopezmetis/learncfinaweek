@@ -24,15 +24,6 @@ table {
     width: 100%;
     border-collapse: collapse;
 }
-
-.report-page {
-    margin-top: 30px;
-}
-
-.report-actions {
-    margin-top: 15px;
-}
-
 .no-print {
     display: block;
 }
@@ -51,12 +42,6 @@ table {
     body {
         background: #fff;
         color: #000;
-    }
-
-    .report-page {
-        margin-top: 0;
-        max-width: none;
-        width: 100%;
     }
 
     table {
