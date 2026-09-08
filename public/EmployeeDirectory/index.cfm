@@ -97,7 +97,7 @@
 				Print Employee Report
 			</button>
 			<br><br>
-			<!---creates a hidden modal--->
+			<!---Add Employee Modal, creates a hidden modal--->
 			<div class="modal fade" id="addEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="addEmployeeLabel">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
@@ -105,7 +105,7 @@
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 							<h4 class="modal-title" id="addEmployeeLabel">Add Employee</h4>
 						</div>
-						<!---Sends data back to index.cfm, each field has name attrs that match CFML vairables expected by the form handler--->
+						<!---Sends data back to index.cfm, each field has name attrs that match CFML variables expected by the form handler--->
 						<!---when form is submitted,form triggers cfif structKeyExists(form, "addEmployee")--->
 						<form method="post" action="index.cfm">
 							<div class="modal-body">
@@ -140,7 +140,7 @@
 					</div>
 				</div>
 			</div>
-			
+			<!---Creates a table to display employee data, uses bootstrap classes to style the table--->
 			<table class="table table-striped table-bordered table-hover">
 				<thead>
 					<tr>
@@ -160,6 +160,8 @@
 							<td>#encodeForHTML(email)#</td>
 							<td>#encodeForHTML(phone)#</td>
 							<td>
+
+							<!----Creates buttons for each employee, when clicked it will open the edit modal or delete confirmation modal--->
 								<button
 									type="button"
 									class="btn btn-default btn-sm"
@@ -178,6 +180,8 @@
 						</tr>
 
 						<!--- Edit Modal for each employee --->
+						<!--- Each modal has a unique ID based on the employee's ID to avoid conflicts --->
+						<!--- The form inside the modal sends a POST request to index.cfm with the updated employee data --->
 						<div
 							class="modal fade"
 							id="editEmployeeModal#id#"
@@ -289,6 +293,8 @@
 						</div>
 
 						<!--- Delete Confirmation Modal --->
+						<!---- Each modal has a unique ID based on the employee's ID to avoid conflicts --->
+						<!--- The form inside the modal sends a POST request to index.cfm with the employee ID to be deleted --->
 						<div
 							class="modal fade"
 							id="deleteConfirmModal#id#"
