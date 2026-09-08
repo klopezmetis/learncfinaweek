@@ -2,7 +2,7 @@
 	<!---Create function getEmployees(), returns a query of all employees in the Employees table--->
 	<cffunction name="getEmployees" output="false" returntype="Query" access="public" hint="Returns the List of Employees">
 		
-		<cfquery name="employees">
+		<cfquery name="employees"> <!---Query to select all employees from the Employees table, var or local scope it local.employees in functions--->
 	
 			SELECT id, firstname, lastname, email, address, phone 
 			FROM employees
