@@ -63,5 +63,4 @@ component {
 	public void function onRequestEnd( required targetPage ){
 		request.coldBoxVirtualApp.shutdown();
 	}
-
 }
