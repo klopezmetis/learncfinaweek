@@ -25,7 +25,16 @@ component{
 	 * --------------------------------------------------------------------------
 	 * These are pre-defined below so they can be reused.  You can change them here if you want.
 	 */
-	_publicRoot = getDirectoryFromPath( getCurrentTemplatePath() );
+	_publicRoot  = getDirectoryFromPath( getCurrentTemplatePath() );
+	_projectRoot = expandPath( _publicRoot & "../" );
+
+	// Register the mappings ColdBox and its dependencies need to resolve, since
+	// they live outside of the public webroot.
+	this.mappings[ "/app" ]                       = _projectRoot & "app";
+	this.mappings[ "/coldbox" ]                   = _projectRoot & "lib/coldbox";
+	this.mappings[ "/coldbox/system/exceptions" ] = _projectRoot & "lib/coldbox/system/exceptions";
+	this.mappings[ "/modules" ]                   = _projectRoot & "lib/modules";
+	this.mappings[ "/testbox" ]                   = _projectRoot & "lib/testbox";
 
 	/**
 	 * --------------------------------------------------------------------------
@@ -35,7 +44,7 @@ component{
 	 * https://coldbox.ortusbooks.com/getting-started/configuration/bootstrapper-application.cfc
 	 */
 	// COLDBOX STATIC PROPERTY, DO NOT CHANGE UNLESS THIS IS NOT THE ROOT OF YOUR COLDBOX APP
-	COLDBOX_APP_ROOT_PATH = expandPath( "/app" )
+	COLDBOX_APP_ROOT_PATH = _projectRoot & "app"
 	// THE MAPPING LOCATION OF THE COLDBOX CORE APP
 	COLDBOX_APP_MAPPING   = "/app"
 	// THE WEB PATH LOCATION OF THE PUBLIC ASSETS, USUALLY "/" FOR MOST APPS

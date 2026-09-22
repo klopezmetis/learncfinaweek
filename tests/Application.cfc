@@ -26,6 +26,14 @@ component {
 	_appRoot = REReplaceNoCase( _testsRoot, "tests(\\|/)", "" )
 	// Create testing mapping
 	this.mappings[ "/tests" ]   = _testsRoot
+	// Register the mappings ColdBox and its dependencies need to resolve, since
+	// this virtual test application has its own mapping scope.
+	this.mappings[ "/app" ]                       = _appRoot & "app"
+	this.mappings[ "/public" ]                    = _appRoot & "public"
+	this.mappings[ "/coldbox" ]                   = _appRoot & "lib/coldbox"
+	this.mappings[ "/coldbox/system/exceptions" ] = _appRoot & "lib/coldbox/system/exceptions"
+	this.mappings[ "/modules" ]                   = _appRoot & "lib/modules"
+	this.mappings[ "/testbox" ]                   = _appRoot & "lib/testbox"
 
 	/**
 	 * Fires on every test request. It builds a Virtual ColdBox application for you
