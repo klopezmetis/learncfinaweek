@@ -1,4 +1,4 @@
-<bx:output>
+<cfoutput>
 <div class="text-center card shadow-sm bg-light border border-5 border-white">
 	<div class="card-body">
 		<div>
@@ -14,7 +14,7 @@
 
 		<div class="col-lg-6 mx-auto">
 			<p class="lead mb-4">
-				Welcome to BoxLang HMVC development.  You can now start building your application with ease, we already did the hard work
+				Welcome to ColdBox HMVC development.  You can now start building your application with ease, we already did the hard work
 				for you.
 			</p>
 		</div>
@@ -33,14 +33,14 @@
 				<span class="badge bg-danger">index()</span>
 				</p>
 				<div class="list-group">
-					<bx:loop list="#getSetting("RegisteredHandlers")#" index="handler">
+					<cfloop list="#getSetting("RegisteredHandlers")#" index="handler">
 						<a href="#event.buildLink( handler )#" class="list-group-item list-group-item-action d-flex gap-2 py-3" title="Run Event">
 							<div class="rounded-circle flex-shrink-0 text-success px-1">
 								<i class="bi bi-play-btn" aria-hidden="true"></i>
 							</div>
 							<div class="d-flex gap-2 w-100 justify-content-between">#handler#</div>
 						</a>
-					</bx:loop>
+					</cfloop>
 				</div>
 			</div>
 		</div>
@@ -55,7 +55,7 @@
 				Here are your registered ColdBox Modules. Click on them to open their entry point.
 				</p>
 				<div class="list-group">
-					<bx:loop collection="#getSetting("Modules")#" item="thisModule">
+					<cfloop collection="#getSetting("Modules")#" item="thisModule">
 						<a href="#event.buildLink( getModuleConfig( thisModule ).inheritedEntryPoint )#" class="list-group-item list-group-item-action d-flex gap-2 py-3" title="Run Event">
 							<div class="rounded-circle flex-shrink-0 text-success px-1">
 								<i class="bi bi-play-btn" aria-hidden="true"></i>
@@ -63,7 +63,7 @@
 							<div class="d-flex gap-2 w-100 justify-content-between">#thisModule#</div>
 						</a>
 
-					</bx:loop>
+					</cfloop>
 				</div>
 			</div>
 		</div>
@@ -92,7 +92,7 @@
 								<em>?fwreinit={ReinitPassword}</em>
 							</td>
 							<td>
-								<a class="btn btn-dark" href="index.bxm?fwreinit=1">
+								<a class="btn btn-dark" href="index.cfm?fwreinit=1">
 									<i class="bi bi-power" aria-hidden="true"></i> Run
 								</a>
 							</td>
@@ -126,7 +126,7 @@
 					</a>
 
 					<a
-						href="#event.buildLink( "tests" )#/runner.bxm"
+						href="#event.buildLink( "tests" )#/runner.cfm"
 						class="btn btn-dark btn-lg"
 						role="button"
 						target="_blank"
@@ -140,4 +140,4 @@
 	</div>
 </div>
 
-</bx:output>
+</cfoutput>

@@ -1,4 +1,4 @@
-class {
+component {
 
 	/**
 	 * Configure the ColdBox App For Production
@@ -32,7 +32,7 @@ class {
 			sessionEndHandler        : "",
 			missingTemplateHandler   : "",
 			// Extension Points
-			applicationHelper        : "/app/helpers/ApplicationHelper.bxm",
+			applicationHelper        : "/app/helpers/ApplicationHelper.cfm",
 			viewsHelper              : "",
 			modulesExternalLocation  : [ "/modules" ],
 			viewsExternalLocation    : "",

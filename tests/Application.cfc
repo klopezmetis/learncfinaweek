@@ -3,7 +3,7 @@
  * www.ortussolutions.com
  * ---
  */
-class {
+component {
 
 	/**
 	 * --------------------------------------------------------------------------
@@ -20,8 +20,7 @@ class {
 	 * --------------------------------------------------------------------------
 	 * Location Mappings
 	 * --------------------------------------------------------------------------
-	 * The majority of mappings are in the boxlang.json pre-configured for you
-	 * so they can be reused.
+	 * The majority of mappings are pre-configured for you so they can be reused.
 	 */
 	_testsRoot = getDirectoryFromPath( getCurrentTemplatePath() )
 	_appRoot = REReplaceNoCase( _testsRoot, "tests(\\|/)", "" )
@@ -35,7 +34,7 @@ class {
 	 */
 	public boolean function onRequestStart( targetPage ) output="true"{
 		// Set a high timeout for long running tests
-		bx:setting requestTimeout   ="9999";
+		cfsetting( requestTimeout="9999" );
 		// Clear the page pool on each request for test freshness
 		pagePoolClear()
 		// New ColdBox Virtual Application Starter

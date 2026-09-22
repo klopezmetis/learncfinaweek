@@ -4,7 +4,7 @@
  * ---
  * Application Bootstrap
  */
-class{
+component{
 
 	/**
 	 * --------------------------------------------------------------------------
@@ -23,8 +23,7 @@ class{
 	 * --------------------------------------------------------------------------
 	 * Location Mappings
 	 * --------------------------------------------------------------------------
-	 * These are pre-defined in the runtime/config/boxlang.json so they can
-	 * be reused.  You can change them here if you want.
+	 * These are pre-defined below so they can be reused.  You can change them here if you want.
 	 */
 	_publicRoot = getDirectoryFromPath( getCurrentTemplatePath() );
 
@@ -61,7 +60,7 @@ class{
 	 * Fires when the application starts
 	 */
 	public boolean function onApplicationStart() {
-		bx:setting requestTimeout ="300";
+		cfsetting( requestTimeout="300" );
 		application.cbBootstrap= new coldbox.system.Bootstrap(
 			COLDBOX_CONFIG_FILE,
 			COLDBOX_APP_ROOT_PATH,

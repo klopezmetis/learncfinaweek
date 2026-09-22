@@ -1,14 +1,14 @@
 /**
- * Build automation script for ColdBox BoxLang Template
+ * Build automation script for ColdBox CFML Template
  *
  * This component handles the build processes including:
  * - Compilation and packaging
  * - Distribution preparation
  * - Checksum generation
  *
- * Usage: boxlang Build.bx
+ * Usage: box run Build.cfc
  */
-class {
+component {
 
 	/**
 	 * Constructor - Initialize build environment
@@ -60,9 +60,6 @@ class {
 
 		// Create build ID file
 		createBuildID();
-
-		// Compile sources
-		compileSources();
 
 		// Create distribution zip
 		createDistribution();
@@ -190,32 +187,6 @@ class {
 	}
 
 	/**
-	 * Compile BoxLang sources
-	 */
-	private function compileSources(){
-		printStep( "🔨 Compiling BoxLang sources..." );
-
-		var compilePaths = [
-			variables.packageDir & "/app/",
-			variables.packageDir & "/public/"
-		];
-
-		compilePaths.each( ( path ) => {
-			if ( directoryExists( path ) ) {
-				printInfo( "Compiling: [#path#]" );
-				try {
-					var result = systemExecute( "boxlang", "compile --source #path# --target #path#" );
-					println( result.output )
-				} catch( any e ) {
-					printWarning( "Compilation error for #path#: #e.message#" );
-				}
-			}
-		} );
-
-		printSuccess( "Source compilation completed" );
-	}
-
-	/**
 	 * Create distribution zip file
 	 */
 	private function createDistribution(){
@@ -226,11 +197,13 @@ class {
 
 		printInfo( "Zipping package to: #zipFileName#" );
 
-		bx:zip
-			file      = zipPath
-			source    = variables.packageDir
-			overwrite = true
-			recurse   = true;
+		cfzip(
+			action    = "zip",
+			file      = zipPath,
+			source    = variables.packageDir,
+			overwrite = true,
+			recurse   = true
+		);
 
 		fileCopy( variables.packageDir & "/box.json", variables.distDir & "/box.json" );
 
@@ -273,32 +246,32 @@ class {
 
 	private function printHeader( required string message ){
 		var separator = repeatString( "=", 70 );
-		println( "", true );
-		println( separator, true );
-		println( "  🚀 " & arguments.message, true );
-		println( separator, true );
-		println( "", true );
+		systemOutput( "", true );
+		systemOutput( separator, true );
+		systemOutput( "  🚀 " & arguments.message, true );
+		systemOutput( separator, true );
+		systemOutput( "", true );
 	}
 
 	private function printStep( required string message ){
-		println( "", true );
-		println( "📦 " & arguments.message, true );
+		systemOutput( "", true );
+		systemOutput( "📦 " & arguments.message, true );
 	}
 
 	private function printInfo( required string message ){
-		println( "   📄 " & arguments.message, true );
+		systemOutput( "   📄 " & arguments.message, true );
 	}
 
 	private function printSuccess( required string message ){
-		println( "   ✅ " & arguments.message, true );
+		systemOutput( "   ✅ " & arguments.message, true );
 	}
 
 	private function printWarning( required string message ){
-		println( "   ⚠️  " & arguments.message, true );
+		systemOutput( "   ⚠️  " & arguments.message, true );
 	}
 
 	private function printError( required string message ){
-		println( "   ❌ " & arguments.message, true );
+		systemOutput( "   ❌ " & arguments.message, true );
 	}
 
 }

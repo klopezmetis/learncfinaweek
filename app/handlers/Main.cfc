@@ -1,4 +1,4 @@
-class extends="coldbox.system.EventHandler" {
+component extends="coldbox.system.EventHandler" {
 
 	/**
 	 * Default Action

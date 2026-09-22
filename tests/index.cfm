@@ -1,19 +1,19 @@
 <!---
 	TestBox Run IDE
-	BoxLang-native test runner UI — BDD/xUnit discovery + SSE streaming
+	CFML test runner UI — BDD/xUnit discovery + SSE streaming
 --->
-<bx:script>
+<cfscript>
 // Configurable parameters (can be overridden via URL query params)
-bx:param name="url.directory"       default="tests.specs";
-bx:param name="url.recurse"         default="true"  type="boolean";
-bx:param name="url.bundlesPattern"  default="";
-bx:param name="url.labels"          default="";
-bx:param name="url.excludes"        default="";
-bx:param name="url.runnerUrl"       default="runner.bxm";
-bx:param name="url.editor"          default="vscode";
-</bx:script>
+param name="url.directory"       default="tests.specs";
+param name="url.recurse"         default="true"  type="boolean";
+param name="url.bundlesPattern"  default="";
+param name="url.labels"          default="";
+param name="url.excludes"        default="";
+param name="url.runnerUrl"       default="runner.cfm";
+param name="url.editor"          default="vscode";
+</cfscript>
 <!--- HTML CODE --->
-<bx:output>
+<cfoutput>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -232,7 +232,7 @@ bx:param name="url.editor"          default="vscode";
 				</p>
 				<p class="mb-0">
 					<i class="bi bi-info-circle me-1"></i>
-					Common causes: the <code>runner.bxm</code> (or <code>runner.cfm</code>) file does not exist, the server is not running, or the runner URL path is incorrect.
+					Common causes: the <code>runner.cfm</code> file does not exist, the server is not running, or the runner URL path is incorrect.
 					Try opening the runner URL directly in your browser to see the raw error.
 				</p>
 			</div>
@@ -707,7 +707,7 @@ bx:param name="url.editor"          default="vscode";
 					<div class="mb-3">
 						<label class="form-label">Runner URL</label>
 						<input type="text" class="form-control" x-model="preferences.runnerUrl">
-						<div class="form-text">Relative path (e.g. runner.bxm) or absolute HTTP/S.</div>
+						<div class="form-text">Relative path (e.g. runner.cfm) or absolute HTTP/S.</div>
 					</div>
 					<div class="row mb-3">
 						<div class="col-md-6">
@@ -765,7 +765,7 @@ bx:param name="url.editor"          default="vscode";
 						:src="preferences.theme === 'dark' ? 'assets/images/testbox-logo-full-light-L.svg' : 'assets/images/testbox-logo-full-dark-L.svg'"
 						alt="TestBox"
 						class="about-logo mb-1">
-					<p class="text-muted small mb-3">The leading BDD &amp; TDD testing framework for BoxLang &amp; CFML</p>
+					<p class="text-muted small mb-3">The leading BDD &amp; TDD testing framework for CFML</p>
 
 					<!--- Keyboard shortcuts --->
 					<div class="about-shortcuts mb-4 text-start">
@@ -829,4 +829,4 @@ bx:param name="url.editor"          default="vscode";
 	<script defer src="assets/js/vendor/alpine.min.js"></script>
 </body>
 </html>
-</bx:output>
+</cfoutput>

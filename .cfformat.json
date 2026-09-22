@@ -98,7 +98,7 @@
     "break_length" : 2147483647
   },
   "template" : {
-    "component_prefix" : "bx",
+    "component_prefix" : "cf",
     "indent_content" : false,
     "single_attribute_per_line" : false,
     "self_closing" : false

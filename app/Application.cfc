@@ -1,6 +1,6 @@
 /**
  * Protects the application from being accessed directly.
  */
-class {
+component {
 	abort;
 }

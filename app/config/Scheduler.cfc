@@ -1,4 +1,4 @@
-class {
+component {
 
 	/**
 	 * Configure the ColdBox Scheduler

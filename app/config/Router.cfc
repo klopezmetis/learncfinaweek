@@ -3,7 +3,7 @@
  *
  * https://coldbox.ortusbooks.com/the-basics/routing
  */
-class {
+component {
 
 	function configure(){
 		/**

@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates
 {
-	"name": "ColdBox BoxLang App",
+	"name": "ColdBox CFML App",
 
 	"dockerComposeFile": [
 		"./docker-compose.yml"
@@ -42,19 +42,16 @@
 		"vscode": {
 			"settings": {
 				"files.associations": {
-					"*.bx": "boxlang",
-					"*.bxm": "boxlang",
-					"*.bxs": "boxlang"
+					"*.cfc": "cfml",
+					"*.cfm": "cfml"
 				},
-				"boxlang.cfml.engine": "boxlang",
-				"boxlang.cfml.cfcEngine": "boxlang",
 				"editor.formatOnSave": true,
 				"editor.tabSize": 4,
 				"editor.insertSpaces": false,
 				"terminal.integrated.defaultProfile.linux": "zsh"
 			},
 			"extensions": [
-				"ortus-solutions.vscode-boxlang-developer-pack",
+				"KamasamaK.vscode-cfml",
 				"ortus-solutions.vscode-coldbox",
 				"ms-vscode.vscode-json",
 				"redhat.vscode-yaml",
@@ -67,11 +64,11 @@
 	"forwardPorts": [8080, 8443, 4306],
 	"portsAttributes": {
 		"8080": {
-			"label": "BoxLang App (HTTP)",
+			"label": "CFML App (HTTP)",
 			"onAutoForward": "notify"
 		},
 		"8443": {
-			"label": "BoxLang App (HTTPS)",
+			"label": "CFML App (HTTPS)",
 			"onAutoForward": "ignore"
 		},
 		"4306": {

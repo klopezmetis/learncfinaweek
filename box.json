@@ -6,9 +6,9 @@
     "slug":"coldbox",
     "createPackageDirectory":false,
     "type":"mvc",
-    "language":"boxlang",
-    "keywords":"boxlang",
-    "shortDescription":"The default starter template for a ColdBox application using BoxLang",
+    "language":"cfml",
+    "keywords":"coldbox,cfml",
+    "shortDescription":"The default starter template for a ColdBox application using CFML",
     "ignore":[],
     "dependencies":{
         "coldbox":"^8.0.0"
@@ -16,7 +16,7 @@
     "devDependencies":{
         "testbox":"*",
         "route-visualizer":"*",
-        "commandbox-boxlang":"*"
+        "commandbox-cfformat":"*"
     },
     "installPathConventions":{
         "modules":"lib/modules"
@@ -27,15 +27,15 @@
         "route-visualizer":"lib/modules/route-visualizer/"
     },
     "scripts":{
-        "format":"!boxlang format --source app/,tests/specs/,*.bx",
-        "format:check":"!boxlang format --check --source app/,tests/specs/,*.bx",
+        "format":"!box cfformat run app/,tests/specs/,*.cfc",
+        "format:check":"!box cfformat check app/,tests/specs/,*.cfc",
         "docker:build":"!docker build --no-cache -t my-coldbox-app -f ./docker/Dockerfile ./",
         "docker:run":"!docker run -it -p 8080:8080 my-coldbox-app",
         "docker:bash":"!docker run -it my-coldbox-app /bin/bash",
         "docker:stack":"!docker compose -f docker/docker-compose.yaml ${1}"
     },
     "testbox":{
-        "runner":"/tests/runner.bxm"
+        "runner":"/tests/runner.cfm"
     },
     "description":"A ColdBox Application created with the ColdBox CLI"
 }
