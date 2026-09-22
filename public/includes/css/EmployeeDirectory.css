@@ -1,0 +1,39 @@
+/* Add padding to table cells */
+.table td,
+.table th {
+    padding: 12px 8px !important;
+}
+
+/* Add spacing between buttons */
+td button {
+    margin-right: 5px;
+}
+
+/* Add word wrapping for long addresses/emails */
+.table td {
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+/*
+ * Print Employee Report
+ * The navbar and footer are hidden with Bootstrap's d-print-none class in the partials.
+ */
+@media print {
+    .btn,
+    .modal,
+    .alert {
+        display: none !important;
+    }
+
+    body {
+        background: #fff;
+        color: #000;
+    }
+
+    th, td {
+        border: 1px solid #000;
+        padding: 8px;
+        text-align: left;
+    }
+}

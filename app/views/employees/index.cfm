@@ -32,22 +32,22 @@
 	<table class="table table-striped table-bordered table-hover">
 		<thead>
 			<tr>
-				<th>Name</th>
-				<th>Address</th>
-				<th>Email</th>
-				<th>Phone Number</th>
-				<th>Actions</th>
+				<th class="d-print-none">Name</th>
+				<th class="d-print-none">Address</th>
+				<th class="d-print-none">Email</th>
+				<th class="d-print-none">Phone Number</th>
+				<th class="d-print-none">Actions</th>
 			</tr>
 		</thead>
 		<tbody>
 			<!---One row per employee--->
 			<cfloop query="prc.employees">
 				<tr>
-					<td>#encodeForHTML( prc.employees.firstname & " " & prc.employees.lastname )#</td>
-					<td>#encodeForHTML( prc.employees.address )#</td>
-					<td>#encodeForHTML( prc.employees.email )#</td>
-					<td>#encodeForHTML( prc.employees.phone )#</td>
-					<td>
+					<td class="d-print-none">#encodeForHTML( prc.employees.firstname & " " & prc.employees.lastname )#</td>
+					<td class="d-print-none">#encodeForHTML( prc.employees.address )#</td>
+					<td class="d-print-none">#encodeForHTML( prc.employees.email )#</td>
+					<td class="d-print-none">#encodeForHTML( prc.employees.phone )#</td>
+					<td class="d-print-none">
 						<button
 							type="button"
 							class="btn btn-outline-secondary btn-sm"
