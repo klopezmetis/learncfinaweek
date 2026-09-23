@@ -1,7 +1,21 @@
 {
-    "adminPassword":"access2026",
     "app":{
         "cfengine":"lucee"
+    },
+    "web":{
+        "webroot":"public",
+        "rewrites":{
+            "enable":true
+        },
+        "aliases":{
+            "/coldbox/system/exceptions":"./lib/coldbox/system/exceptions/"
+        },
+        "http":{
+            "port":"52126"
+        }
+    },
+    "cfconfig":{
+        "file":"./.cfconfig.json"
     },
     "jreVersion":"8",
     "save":true
