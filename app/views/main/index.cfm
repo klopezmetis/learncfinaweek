@@ -5,7 +5,7 @@
 			<img src="includes/images/ColdBoxLogo2015_300.png" class="m-2 mt-2" alt="logo" height="200"/>
 		</div>
 		<div class="badge bg-info mb-2">
-			<strong>#getColdBoxSetting( "version" )# (#getColdBoxSetting( "suffix" )#)</strong>
+			<strong>#getColdBoxSetting("version")# (#getColdBoxSetting("suffix")#)</strong>
 		</div>
 
 		<h1 class="display-5 fw-bold">
@@ -34,7 +34,7 @@
 				</p>
 				<div class="list-group">
 					<cfloop list="#getSetting("RegisteredHandlers")#" index="handler">
-						<a href="#event.buildLink( handler )#" class="list-group-item list-group-item-action d-flex gap-2 py-3" title="Run Event">
+						<a href="#event.buildLink(handler)#" class="list-group-item list-group-item-action d-flex gap-2 py-3" title="Run Event">
 							<div class="rounded-circle flex-shrink-0 text-success px-1">
 								<i class="bi bi-play-btn" aria-hidden="true"></i>
 							</div>
@@ -56,7 +56,8 @@
 				</p>
 				<div class="list-group">
 					<cfloop collection="#getSetting("Modules")#" item="thisModule">
-						<a href="#event.buildLink( getModuleConfig( thisModule ).inheritedEntryPoint )#" class="list-group-item list-group-item-action d-flex gap-2 py-3" title="Run Event">
+						<a href="#event
+	.buildLink(getModuleConfig(thisModule).inheritedEntryPoint)#" class="list-group-item list-group-item-action d-flex gap-2 py-3" title="Run Event">
 							<div class="rounded-circle flex-shrink-0 text-success px-1">
 								<i class="bi bi-play-btn" aria-hidden="true"></i>
 							</div>
@@ -116,7 +117,7 @@
 
 				<div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
 					<a
-						href="#event.buildLink( "tests" )#"
+						href="#event.buildLink("tests")#"
 						class="btn btn-dark btn-lg"
 						role="button"
 						target="_blank"
@@ -126,7 +127,7 @@
 					</a>
 
 					<a
-						href="#event.buildLink( "tests" )#/runner.cfm"
+						href="#event.buildLink("tests")#/runner.cfm"
 						class="btn btn-dark btn-lg"
 						role="button"
 						target="_blank"

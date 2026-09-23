@@ -14,7 +14,6 @@ component {
 		 * - setExecutor( executorObject ) : change the executor if needed
 		 */
 
-
 		/**
 		 * --------------------------------------------------------------------------
 		 * Register Scheduled Tasks
@@ -28,12 +27,14 @@ component {
 	 * Called before the scheduler is going to be shutdown
 	 */
 	function onShutdown(){
+
 	}
 
 	/**
 	 * Called after the scheduler has registered all schedules
 	 */
 	function onStartup(){
+
 	}
 
 	/**
@@ -42,7 +43,8 @@ component {
 	 * @task      The task that got executed
 	 * @exception The ColdFusion exception object
 	 */
-	function onAnyTaskError( required task, required exception ){
+	function onAnyTaskError(required task, required exception){
+
 	}
 
 	/**
@@ -51,7 +53,8 @@ component {
 	 * @task   The task that got executed
 	 * @result The result (if any) that the task produced
 	 */
-	function onAnyTaskSuccess( required task, result ){
+	function onAnyTaskSuccess(required task, result){
+
 	}
 
 	/**
@@ -59,7 +62,8 @@ component {
 	 *
 	 * @task The task about to be executed
 	 */
-	function beforeAnyTask( required task ){
+	function beforeAnyTask(required task){
+
 	}
 
 	/**
@@ -68,7 +72,8 @@ component {
 	 * @task   The task that got executed
 	 * @result The result (if any) that the task produced
 	 */
-	function afterAnyTask( required task, result ){
+	function afterAnyTask(required task, result){
+
 	}
 
 }

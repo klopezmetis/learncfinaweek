@@ -63,7 +63,7 @@ component{
 	 * ORM + Datasource Settings
 	 * --------------------------------------------------------------------------
 	 */
-	this.datasource = "coldbox"
+	this.datasource = "cfsqltraining"
 
 	/**
 	 * Fires when the application starts

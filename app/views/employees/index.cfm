@@ -1,24 +1,22 @@
-<!---
-	Employee Directory view
+<!--- Employee Directory view
 	Rendered by Employees.index() and placed inside layouts/Main.cfm where #view()# is.
 	Data available:
 		prc.employees  - query of all employees (set by the handler)
-		flash          - success / error messages from the last create, update or delete
---->
+		flash          - success / error messages from the last create, update or delete ---> 
 <cfoutput>
 <div class="container my-4">
 
 	<h1>Employee Directory Application</h1>
 
-	<!---Success / error messages saved by the handler with flash.put() before relocating back here--->
-	<cfif len( flash.get( "message", "" ) )>
-		<div class="alert alert-success">#encodeForHTML( flash.get( "message" ) )#</div>
+	<!--- Success / error messages saved by the handler with flash.put() before relocating back here ---> 
+	<cfif len(flash.get("message", ""))>
+		<div class="alert alert-success">#encodeForHTML(flash.get("message"))#</div>
 	</cfif>
-	<cfif len( flash.get( "errorMessage", "" ) )>
-		<div class="alert alert-danger">#encodeForHTML( flash.get( "errorMessage" ) )#</div>
+	<cfif len(flash.get("errorMessage", ""))>
+		<div class="alert alert-danger">#encodeForHTML(flash.get("errorMessage"))#</div>
 	</cfif>
 
-	<!---Action buttons--->
+	<!--- Action buttons ---> 
 	<div class="mb-3">
 		<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="##addEmployeeModal">
 			Add Employee
@@ -28,25 +26,25 @@
 		</button>
 	</div>
 
-	<!---Employee table--->
+	<!--- Employee table ---> 
 	<table class="table table-striped table-bordered table-hover">
 		<thead>
 			<tr>
-				<th class="d-print-none">Name</th>
-				<th class="d-print-none">Address</th>
-				<th class="d-print-none">Email</th>
-				<th class="d-print-none">Phone Number</th>
+				<th>Name</th>
+				<th>Address</th>
+				<th>Email</th>
+				<th>Phone Number</th>
 				<th class="d-print-none">Actions</th>
 			</tr>
 		</thead>
 		<tbody>
-			<!---One row per employee--->
+			<!--- One row per employee ---> 
 			<cfloop query="prc.employees">
 				<tr>
-					<td class="d-print-none">#encodeForHTML( prc.employees.firstname & " " & prc.employees.lastname )#</td>
-					<td class="d-print-none">#encodeForHTML( prc.employees.address )#</td>
-					<td class="d-print-none">#encodeForHTML( prc.employees.email )#</td>
-					<td class="d-print-none">#encodeForHTML( prc.employees.phone )#</td>
+					<td>#encodeForHTML(prc.employees.firstname & " " & prc.employees.lastname)#</td>
+					<td>#encodeForHTML(prc.employees.address)#</td>
+					<td>#encodeForHTML(prc.employees.email)#</td>
+					<td>#encodeForHTML(prc.employees.phone)#</td>
 					<td class="d-print-none">
 						<button
 							type="button"
@@ -68,22 +66,20 @@
 		</tbody>
 	</table>
 
-</div><!--- end container --->
+</div><!--- end container ---> 
 
 
-<!---
-	==========================================================================
+<!--- ==========================================================================
 	Modals
 	Placed after the table because a <div> is not allowed inside <tbody>.
-	==========================================================================
---->
+	========================================================================== ---> 
 
-<!---Add Employee Modal--->
+<!--- Add Employee Modal ---> 
 <div class="modal fade" id="addEmployeeModal" tabindex="-1" aria-labelledby="addEmployeeLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<!---Posts to Employees.create()--->
-			<form method="post" action="#event.buildLink( 'employees.create' )#">
+			<!--- Posts to Employees.create() ---> 
+			<form method="post" action="#event.buildLink("employees.create")#">
 				<div class="modal-header">
 					<h5 class="modal-title" id="addEmployeeLabel">Add Employee</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -119,15 +115,15 @@
 	</div>
 </div>
 
-<!---One Edit modal and one Delete modal per employee, each with a unique id--->
+<!--- One Edit modal and one Delete modal per employee, each with a unique id ---> 
 <cfloop query="prc.employees">
 
-	<!---Edit Employee Modal--->
+	<!--- Edit Employee Modal ---> 
 	<div class="modal fade" id="editEmployeeModal#prc.employees.id#" tabindex="-1" aria-labelledby="editEmployeeLabel#prc.employees.id#" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<!---Posts to Employees.update()--->
-				<form method="post" action="#event.buildLink( 'employees.update' )#">
+				<!--- Posts to Employees.update() ---> 
+				<form method="post" action="#event.buildLink("employees.update")#">
 					<input type="hidden" name="id" value="#prc.employees.id#">
 
 					<div class="modal-header">
@@ -138,27 +134,27 @@
 						<div class="mb-3">
 							<label for="firstname#prc.employees.id#" class="form-label">First name</label>
 							<input type="text" class="form-control" id="firstname#prc.employees.id#" name="firstname"
-								value="#encodeForHTMLAttribute( prc.employees.firstname )#" required>
+								value="#encodeForHTMLAttribute(prc.employees.firstname)#" required>
 						</div>
 						<div class="mb-3">
 							<label for="lastname#prc.employees.id#" class="form-label">Last name</label>
 							<input type="text" class="form-control" id="lastname#prc.employees.id#" name="lastname"
-								value="#encodeForHTMLAttribute( prc.employees.lastname )#" required>
+								value="#encodeForHTMLAttribute(prc.employees.lastname)#" required>
 						</div>
 						<div class="mb-3">
 							<label for="email#prc.employees.id#" class="form-label">Email</label>
 							<input type="email" class="form-control" id="email#prc.employees.id#" name="email"
-								value="#encodeForHTMLAttribute( prc.employees.email )#" required>
+								value="#encodeForHTMLAttribute(prc.employees.email)#" required>
 						</div>
 						<div class="mb-3">
 							<label for="address#prc.employees.id#" class="form-label">Address</label>
 							<input type="text" class="form-control" id="address#prc.employees.id#" name="address"
-								value="#encodeForHTMLAttribute( prc.employees.address )#" required>
+								value="#encodeForHTMLAttribute(prc.employees.address)#" required>
 						</div>
 						<div class="mb-3">
 							<label for="phone#prc.employees.id#" class="form-label">Phone</label>
 							<input type="tel" class="form-control" id="phone#prc.employees.id#" name="phone"
-								value="#encodeForHTMLAttribute( prc.employees.phone )#" required>
+								value="#encodeForHTMLAttribute(prc.employees.phone)#" required>
 						</div>
 					</div>
 					<div class="modal-footer">
@@ -170,7 +166,7 @@
 		</div>
 	</div>
 
-	<!---Delete Confirmation Modal--->
+	<!--- Delete Confirmation Modal ---> 
 	<div class="modal fade" id="deleteConfirmModal#prc.employees.id#" tabindex="-1" aria-labelledby="deleteConfirmLabel#prc.employees.id#" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -179,11 +175,13 @@
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<p>Are you sure you want to delete <strong>#encodeForHTML( prc.employees.firstname & " " & prc.employees.lastname )#</strong>?</p>
+					<p>Are you sure you want to delete <strong>#encodeForHTML(
+	prc.employees.firstname & " " & prc.employees.lastname
+)#</strong>?</p>
 					<p>This action cannot be undone.</p>
 				</div>
-				<!---Posts to Employees.delete()--->
-				<form method="post" action="#event.buildLink( 'employees.delete' )#">
+				<!--- Posts to Employees.delete() ---> 
+				<form method="post" action="#event.buildLink("employees.delete")#">
 					<input type="hidden" name="id" value="#prc.employees.id#">
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>

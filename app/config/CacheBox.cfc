@@ -19,16 +19,16 @@ component {
 			 * All timeouts are in minutes
 			 */
 			defaultCache : {
-				objectDefaultTimeout           : 120, // two hours default
+				objectDefaultTimeout : 120, // two hours default
 				objectDefaultLastAccessTimeout : 30, // 30 minutes idle time
-				useLastAccessTimeouts          : true,
-				reapFrequency                  : 5,
-				freeMemoryPercentageThreshold  : 0,
-				evictionPolicy                 : "LRU",
-				evictCount                     : 1,
-				maxObjects                     : 300,
-				objectStore                    : "ConcurrentStore", // guaranteed objects
-				coldboxEnabled                 : true
+				useLastAccessTimeouts : true,
+				reapFrequency : 5,
+				freeMemoryPercentageThreshold : 0,
+				evictionPolicy : "LRU",
+				evictCount : 1,
+				maxObjects : 300,
+				objectStore : "ConcurrentStore", // guaranteed objects
+				coldboxEnabled : true
 			},
 			/**
 			 * --------------------------------------------------------------------------
@@ -46,17 +46,17 @@ component {
 				 * other internal facilities that might require a more elastic cache.
 				 */
 				template : {
-					provider   : "coldbox.system.cache.providers.CacheBoxColdBoxProvider",
+					provider : "coldbox.system.cache.providers.CacheBoxColdBoxProvider",
 					properties : {
-						objectDefaultTimeout           : 120,
+						objectDefaultTimeout : 120,
 						objectDefaultLastAccessTimeout : 30,
-						useLastAccessTimeouts          : true,
-						freeMemoryPercentageThreshold  : 0,
-						reapFrequency                  : 5,
-						evictionPolicy                 : "LRU",
-						evictCount                     : 2,
-						maxObjects                     : 300,
-						objectStore                    : "ConcurrentSoftReferenceStore" // memory sensitive
+						useLastAccessTimeouts : true,
+						freeMemoryPercentageThreshold : 0,
+						reapFrequency : 5,
+						evictionPolicy : "LRU",
+						evictCount : 2,
+						maxObjects : 300,
+						objectStore : "ConcurrentSoftReferenceStore" // memory sensitive
 					}
 				}
 			}
