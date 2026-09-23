@@ -1,20 +1,20 @@
 {
     "datasources":{
         "cfsqltraining":{
-            "bundleName":"${DB_BUNDLENAME}",
-            "bundleVersion":"${DB_BUNDLEVERSION}",
-            "class":"${DB_CLASS}",
+            "bundleName":"org.lucee.mssql",
+            "bundleVersion":"13.2.1",
+            "class":"com.microsoft.sqlserver.jdbc.SQLServerDriver",
             "connectionLimit":"100",
             "connectionTimeout":"1",
-            "custom":"useUnicode=true&characterEncoding=UTF8&serverTimezone=UTC&useLegacyDatetimeCode=true&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true",
+            "custom":"DATABASENAME=${DB_DATABASE}&instanceName=${DB_INSTANCE}&sendStringParametersAsUnicode=true&SelectMethod=direct",
             "database":"${DB_DATABASE}",
-            "dbdriver":"${DB_DRIVER:MySQL}",
-            "dsn":"jdbc:mysql://{host}:{port}/{database}",
-            "host":"${DB_HOST:127.0.0.1}",
+            "dbdriver":"MSSQL",
+            "dsn":"jdbc:sqlserver://{host}:{port}",
+            "host":"${DB_HOST}",
             "password":"${DB_PASSWORD}",
-            "port":"${DB_PORT:3306}",
+            "port":"${DB_PORT:1433}",
             "storage":"false",
-            "username":"${DB_USER:root}"
+            "username":"${DB_USER}"
         }
     },
     "robustExceptionEnabled":true
